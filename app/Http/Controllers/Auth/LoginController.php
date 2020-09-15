@@ -28,6 +28,12 @@ class LoginController extends Controller
      */
     protected $redirectTo = RouteServiceProvider::HOME;
 
+    //este metodo sobreescribe al definido en el trait AuthenticatesUsers ubicado en \vendor\laravel\framework\src\Illuminate\Foundation\Auth
+    public function username(){
+        //cambio realizado para tener en cuenta el nombre de usuario en lugar del email 
+        return 'username';
+    }
+
     /**
      * Create a new controller instance.
      *

@@ -15,12 +15,19 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('email')->unique();
+            $table->string('username')->comment('nombre usuario');
+            $table->string('nombres')->comment('nombre personal');
+            $table->string('email')->unique()->comment('correo');
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('password')->comment('contraseña');
+            $table->integer('rol')->comment('admin:1, lider:2, transversal:3, aprendiz:4');
+            
             $table->rememberToken();
             $table->timestamps();
+
+            $table->engine='InnoDB';
+            $table->charset='utf8';
+            $table->collation='utf8_spanish_ci';
         });
     }
 

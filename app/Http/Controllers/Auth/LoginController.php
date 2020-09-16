@@ -26,7 +26,10 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    // protected $redirectTo = RouteServiceProvider::HOME;
+    
+    // se define a donde redirecciona el sistema cuando supera la validación del login
+    protected $redirectTo = '/inicio';
 
     //este metodo sobreescribe al definido en el trait AuthenticatesUsers ubicado en \vendor\laravel\framework\src\Illuminate\Foundation\Auth
     public function username(){

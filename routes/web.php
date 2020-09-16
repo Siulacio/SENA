@@ -18,3 +18,12 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//ruta de inicio del sistema
+Route::get('/inicio', function () {
+    return view('app.dashboard');
+});
+
+Route::get('/usuarios/nuevo', function () {
+    return view('app.usuarios.nuevo_usuario');
+});

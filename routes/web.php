@@ -24,6 +24,13 @@ Route::get('/inicio', function () {
     return view('app.dashboard');
 });
 
-Route::get('/usuarios/nuevo', function () {
-    return view('app.usuarios.nuevo_usuario');
-});
+//rutas usuarios
+Route::get('/usuarios/listado','UsuariosController@index');
+Route::get('/usuarios/nuevo','UsuariosController@create');
+Route::post('/usuarios/guardar','UsuariosController@store');
+
+//rutas programas
+
+// Route::get('/usuarios/nuevo', function () {
+//     return view('app.usuarios.nuevo_usuario');
+// });

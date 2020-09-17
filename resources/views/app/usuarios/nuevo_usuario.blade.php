@@ -39,6 +39,11 @@
                             <label for="example-text-input" class="col-sm-2 col-form-label">Rol</label>
                             <div class="col-sm-10">
                                 <input class="form-control" name="rol" type="text" value="" id="example-text-input">
+                                {{-- <select name="rol" id="rol" class="form-control">
+                                    <option value="1">Admin</option>
+                                    <option value="2">Lider</option>
+                                    <option value="3">Aprendiz</option>
+                                </select> --}}
                             </div>
                         </div>
 

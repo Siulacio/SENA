@@ -50,5 +50,14 @@
 @section('librerias')
     <script src="{{asset('dashor/assets/plugins/datatables/jquery.dataTables.min.js')}}"></script>
     <script src="{{asset('dashor/assets/plugins/datatables/dataTables.bootstrap4.min.js')}}"></script>
-    <script src="{{asset('dashor/assets/pages/datatables.init.js')}}"></script> 
+    {{-- <script src="{{asset('dashor/assets/pages/datatables.init.js')}}"></script>  --}}
+    <script>
+        $(document).ready( function () {
+            $('#datatable').DataTable({
+                language:{
+                    url: "{{ asset('dashor/assets/plugins/datatables/Spanish.json') }}" 
+                }
+            });
+        } );
+    </script>
 @endsection

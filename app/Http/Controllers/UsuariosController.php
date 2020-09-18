@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\UserStoreRequest;
 use App\User;
+use App\Rol;
 
 class UsuariosController extends Controller
 {
@@ -25,7 +27,8 @@ class UsuariosController extends Controller
      */
     public function create()
     {
-        return view('app.usuarios.nuevo_usuario');
+        $roles = Rol::get();
+        return view('app.usuarios.nuevo_usuario', compact('roles'));
     }
 
     /**
@@ -34,7 +37,7 @@ class UsuariosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserStoreRequest $request)
     {
         $usuario = new User();
         $usuario->username = $request->username;
@@ -46,7 +49,7 @@ class UsuariosController extends Controller
 
         // return view('app.usuarios.listado_usuarios');
         // return redirect()->action('oficinasController@list')->with('status','Oficina almacenada satisfactoriamente!');
-        return redirect()->action('UsuariosController@index');
+        return redirect()->action('UsuariosController@index')->with('status','Usuario '.$request->username.' almacenado satisfactoriamente!');
 
     }
 
@@ -69,7 +72,10 @@ class UsuariosController extends Controller
      */
     public function edit($id)
     {
-        //
+        $usuario = User::find($id);
+        $roles = Rol::get();
+        return view('app.usuarios.editar_usuario', compact('roles','usuario'));
+
     }
 
     /**
@@ -79,9 +85,19 @@ class UsuariosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+
+        $usuario = User::find($request->id);
+        $usuario->username = $request->username;
+        $usuario->nombres = $request->nombres;
+        $usuario->email = $request->email;
+        $usuario->password = bcrypt($request->password);
+        $usuario->rol = $request->rol;
+        $usuario->save();
+
+        return redirect()->action('UsuariosController@index')->with('status','Usuario <b>'.$request->username.'</b> actualizado satisfactoriamente!');
+
     }
 
     /**
@@ -93,5 +109,18 @@ class UsuariosController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function estados($id){
+
+        $usuario = User::find($id);
+
+        if($usuario->estado == 1){
+            $usuario->estado = 0;
+        }else{
+            $usuario->estado = 1;
+        }
+        $usuario->save();
+        return redirect()->action('UsuariosController@index');
     }
 }

@@ -1,6 +1,6 @@
 <div id="sidebar-menu">
     <ul>
-        <li class="menu-title">Opciones</li>
+        <li class="menu-title">Administrador</li>
 
         {{-- <li class="has_sub">
             <a href="index.html" class="waves-effect waves-light"><i class="mdi mdi-view-dashboard"></i><span> Dashboard </span> 

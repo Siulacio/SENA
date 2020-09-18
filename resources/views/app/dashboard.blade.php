@@ -4,12 +4,14 @@
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-        <title>Dashor - Responsive Bootstrap 4 Admin Dashboard</title>
+        <title>SENA - Ambiente de aprendizaje</title>
         <meta content="Admin Dashboard" name="description" />
         <meta content="themesdesign" name="author" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-        <link rel="shortcut icon" href="assets/images/favicon.ico">
+        {{-- <link rel="shortcut icon" href="assets/images/favicon.ico"> --}}
+        <link rel="shortcut icon" href="{{asset('img/logos/logo.png')}}">
+
 
         <link href="{{asset('dashor/assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
         <link href="{{asset('dashor/assets/plugins/animate/animate.css')}}" rel="stylesheet" type="text/css">
@@ -91,7 +93,7 @@
                         {{-- <a href="index.html" class="logo"><img src="{{asset('dashor/assets/images/logo.png')}}" height="14" alt="logo"></a> --}}
                         {{-- <img src="assets/images/users/avatar-1.jpg" alt="" class="rounded-circle  mx-auto d-block w-80"> --}}
                         <div class="mt-4">
-                            <img src="{{asset('img/logos/logo.png')}}" alt="" class="rounded-circle  mx-auto d-block w-80">
+                            <a href="{{url('/inicio')}}"><img src="{{asset('img/logos/logo.png')}}" alt="" class="rounded-circle  mx-auto d-block w-80"></a>
 
                         </div>
 
@@ -102,7 +104,18 @@
                 <div class="sidebar-inner slimscrollleft" id="sidebar-main">
 
                    {{-- MENU --}}
-                   @include('app.menus.menu_administrador')
+                   @if (Auth::user()->rol == 1)
+                        @include('app.menus.menu_administrador')                       
+                   @endif
+                   @if (Auth::user()->rol == 2)
+                        @include('app.menus.menu_lider')                       
+                   @endif
+                   @if (Auth::user()->rol == 3)
+                        @include('app.menus.menu_transversal')                       
+                   @endif
+                   @if (Auth::user()->rol == 4)
+                        @include('app.menus.menu_aprendiz')                       
+                   @endif
                    {{-- FIN MENU --}}
 
                     <div class="clearfix"></div>
@@ -120,7 +133,8 @@
                     <div class="topbar">
                         <nav class="navbar-custom">
                             <ul class="list-inline float-right mb-0">
-                                <li class="list-inline-item dropdown notification-list">
+
+                                {{-- <li class="list-inline-item dropdown notification-list">
                                     <a class="nav-link dropdown-toggle arrow-none waves-effect waves-light" data-toggle="dropdown" href="#" role="button"
                                        aria-haspopup="false" aria-expanded="false">
                                         <i class="ti-email noti-icon"></i>
@@ -155,9 +169,9 @@
                                             View All
                                         </a>
                                     </div>
-                                </li>
+                                </li> --}}
 
-                                <li class="list-inline-item dropdown notification-list">
+                                {{-- <li class="list-inline-item dropdown notification-list">
                                     <a class="nav-link dropdown-toggle arrow-none waves-effect waves-light" data-toggle="dropdown" href="#" role="button"
                                        aria-haspopup="false" aria-expanded="false">
                                         <i class="ti-bell noti-icon"></i>
@@ -192,24 +206,36 @@
                                             View All
                                         </a>
                                     </div>
-                                </li>
+                                </li> --}}
 
                                 <li class="list-inline-item dropdown notification-list">
-                                    <a class="nav-link dropdown-toggle arrow-none waves-effect waves-light nav-user" data-toggle="dropdown" href="#" role="button"
+                                    <a class="nav-link dropdown-toggle arrow-none waves-effect waves-light nav-user" data-toggle="dropdown" href="" role="button"
                                         aria-haspopup="false" aria-expanded="false">
                                         <img src="{{asset('dashor/assets/images/users/avatar-1.jpg')}}" alt="user" class="rounded-circle">
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
                                         <!-- item-->
                                         <div class="dropdown-item noti-title">
-                                            <h5>Welcome</h5>
+                                            <h5>{{Auth::user()->username}}</h5>
                                         </div>
-                                        <a class="dropdown-item" href="#"><i class="mdi mdi-account-circle "></i> Profile</a>
-                                        <a class="dropdown-item" href="#"><i class="mdi mdi-wallet "></i> My Wallet</a>
+                                        <a class="dropdown-item" href="#"><i class="mdi mdi-account-circle "></i> Perfil</a>
+                                        {{-- <a class="dropdown-item" href="#"><i class="mdi mdi-wallet "></i> My Wallet</a>
                                         <a class="dropdown-item" href="#"><span class="badge badge-primary float-right">3</span><i class="mdi mdi-settings "></i> Settings</a>
-                                        <a class="dropdown-item" href="#"><i class="mdi mdi-lock-open-outline"></i> Lock screen</a>
+                                        <a class="dropdown-item" href="#"><i class="mdi mdi-lock-open-outline"></i> Lock screen</a> --}}
                                         <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item text-danger" href="#"><i class="mdi mdi-power text-danger"></i> Logout</a>
+                                        
+                                        <a class="dropdown-item text-danger" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                        document.getElementById('logout-form').submit();">
+                                            <i class="mdi mdi-power text-danger"></i>{{ __('Salir') }}
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>
+
+
+                                        {{-- <a class="dropdown-item text-danger" href="#"><i class="mdi mdi-power text-danger"></i> Logout</a> --}}
                                     </div>
                                 </li>
                             </ul>

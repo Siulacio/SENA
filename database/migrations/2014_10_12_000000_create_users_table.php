@@ -20,7 +20,11 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique()->comment('correo');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->comment('contraseña');
-            $table->integer('rol')->comment('admin:1, lider:2, transversal:3, aprendiz:4');
+            $table->unsignedBigInteger('rol')->comment('admin:1, lider:2, transversal:3, aprendiz:4');
+            $table->integer('estado')->default(1)->comment('activo->1, inactivo->0');
+            // $table->integer('rol')->comment('admin:1, lider:2, transversal:3, aprendiz:4');
+
+            $table->foreign('rol')->references('id')->on('roles');
             
             $table->rememberToken();
             $table->timestamps();

@@ -11,8 +11,12 @@
 |
 */
 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Auth::routes();
@@ -25,9 +29,13 @@ Route::get('/inicio', function () {
 });
 
 //rutas usuarios
-Route::get('/usuarios/listado','UsuariosController@index');
-Route::get('/usuarios/nuevo','UsuariosController@create');
-Route::post('/usuarios/guardar','UsuariosController@store');
+Route::get('/usuarios/listado','UsuariosController@index')->middleware('auth');;
+Route::get('/usuarios/nuevo','UsuariosController@create')->middleware('auth');;
+Route::post('/usuarios/guardar','UsuariosController@store')->middleware('auth');;
+Route::get('/usuarios/estado/{id}','UsuariosController@estados')->middleware('auth');;
+Route::get('/usuarios/editar/{id}','UsuariosController@edit')->middleware('auth');;
+Route::post('/usuarios/actualizar','UsuariosController@update')->middleware('auth');;
+
 
 //rutas programas
 

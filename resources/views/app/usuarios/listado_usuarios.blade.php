@@ -8,6 +8,14 @@
     listado usuarios
 @endsection
 @section('content')
+    {{-- Bloque de mensajes --}}
+    @if (session('status'))
+        <div class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+            {!! session('status') !!}
+        </div>
+    @endif
+    {{-- fin bloque mensajes --}}
     <div class="row">
         <div class="col-12">
             <div class="card m-b-30">
@@ -30,11 +38,15 @@
                                 <tr>
                                     <td>{{$usuario->username}}</td>
                                     <td>{{$usuario->nombres}}</td>
-                                    <td>{{$usuario->rol}}</td>
+                                    <td>{{$usuario->roles->nombre}}</td>
                                     <td>{{$usuario->email}}</td>
                                     <td>
-                                        <a href="" ><i class="fas fa-edit" title="Editar Usuario"></i></a>
-                                        <a href="" class="ml-2" ><i class="far fa-trash-alt" title="Eliminar Usuario"></i></a>
+                                        <a href="{{url('/usuarios/editar/'.$usuario->id)}}" ><i class="fas fa-edit" title="Editar Usuario"></i></a>
+                                        @if ($usuario->estado == 1)
+                                            <a href="{{url('/usuarios/estado/'.$usuario->id)}}" class="ml-2" ><i class="far fa-thumbs-up" title="Inactivar Usuario"></i></a>
+                                        @else
+                                            <a href="{{url('/usuarios/estado/'.$usuario->id)}}" class="ml-2" ><i class="far fa-thumbs-down" title="Activar Usuario"></i></a>                                            
+                                        @endif
                                     </td>
                                 </tr>                                
                             @endforeach

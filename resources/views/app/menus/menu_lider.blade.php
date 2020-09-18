@@ -14,31 +14,31 @@
         <li class="has_sub">
             <a href="javascript:void(0);" class="waves-effect waves-light"><i class="mdi mdi-email"></i><span> Programas </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
             <ul class="list-unstyled">
-                <li><a href="{{url('/usuarios/listado')}}"> Programas</a></li>
+                <li><a href="#"> Programas</a></li>
             </ul>
         </li>
         <li class="has_sub">
             <a href="javascript:void(0);" class="waves-effect waves-light"><i class="mdi mdi-email"></i><span> Instructores </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
             <ul class="list-unstyled">
-                <li><a href="{{url('/usuarios/listado')}}"> Instructores</a></li>
+                <li><a href="#"> Instructores</a></li>
             </ul>
         </li>
         <li class="has_sub">
             <a href="javascript:void(0);" class="waves-effect waves-light"><i class="mdi mdi-email"></i><span> Aprendices </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
             <ul class="list-unstyled">
-                <li><a href="{{url('/usuarios/listado')}}"> Aprendices</a></li>
+                <li><a href="#"> Aprendices</a></li>
             </ul>
         </li>
         <li class="has_sub">
             <a href="javascript:void(0);" class="waves-effect waves-light"><i class="mdi mdi-email"></i><span> Resultados </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
             <ul class="list-unstyled">
-                <li><a href="{{url('/usuarios/listado')}}"> Resultados de aprendizaje</a></li>
+                <li><a href="#"> Resultados de aprendizaje</a></li>
             </ul>
         </li>
         <li class="has_sub">
             <a href="javascript:void(0);" class="waves-effect waves-light"><i class="mdi mdi-email"></i><span> Informes </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
             <ul class="list-unstyled">
-                <li><a href="{{url('/usuarios/listado')}}"> Informes</a></li>
+                <li><a href="#"> Informes</a></li>
             </ul>
         </li>
         

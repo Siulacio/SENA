@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\UserStoreRequest;
+use App\Http\Requests\UserUpdateRequest;
 use App\User;
 use App\Rol;
 
@@ -85,14 +86,18 @@ class UsuariosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(UserUpdateRequest $request)
     {
 
         $usuario = User::find($request->id);
         $usuario->username = $request->username;
         $usuario->nombres = $request->nombres;
         $usuario->email = $request->email;
-        $usuario->password = bcrypt($request->password);
+
+        if($request->password != null && $request->password_confirm != null ){
+            $usuario->password = bcrypt($request->password);
+        }
+        
         $usuario->rol = $request->rol;
         $usuario->save();
 

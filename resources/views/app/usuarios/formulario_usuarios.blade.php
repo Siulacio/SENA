@@ -19,13 +19,13 @@
 <div class="form-group row">
     <label for="example-text-input" class="col-sm-2 col-form-label">Contraseña</label>
     <div class="col-sm-10">
-        <input class="form-control" name="password" type="password" value="{{$usuario->password ?? ''}}" id="example-text-input">
+        <input class="form-control" name="password" type="password" value="" id="example-text-input">
     </div>
 </div>
 <div class="form-group row">
     <label for="example-text-input" class="col-sm-2 col-form-label">Confirmar contraseña</label>
     <div class="col-sm-10">
-        <input class="form-control" name="password_confirm" type="password" value="{{$usuario->password_confirm ?? ''}}" id="example-text-input">
+        <input class="form-control" name="password_confirm" type="password" value="" id="example-text-input">
     </div>
 </div>
 <div class="form-group row">

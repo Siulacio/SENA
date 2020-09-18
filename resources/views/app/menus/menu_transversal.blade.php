@@ -14,19 +14,19 @@
         <li class="has_sub">
             <a href="javascript:void(0);" class="waves-effect waves-light"><i class="mdi mdi-email"></i><span>Actividades </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
             <ul class="list-unstyled">
-                <li><a href="{{url('/usuarios/listado')}}"> Actividades</a></li>
+                <li><a href="#"> Actividades</a></li>
             </ul>
         </li>
         <li class="has_sub">
             <a href="javascript:void(0);" class="waves-effect waves-light"><i class="mdi mdi-email"></i><span>Informes </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
             <ul class="list-unstyled">
-                <li><a href="{{url('/usuarios/listado')}}"> Informes</a></li>
+                <li><a href="#"> Informes</a></li>
             </ul>
         </li>
         <li class="has_sub">
             <a href="javascript:void(0);" class="waves-effect waves-light"><i class="mdi mdi-email"></i><span>Comunicaciones </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
             <ul class="list-unstyled">
-                <li><a href="{{url('/usuarios/listado')}}"> Chat</a></li>
+                <li><a href="#"> Chat</a></li>
             </ul>
         </li>
 

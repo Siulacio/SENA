@@ -14,7 +14,7 @@
         <li class="has_sub">
             <a href="javascript:void(0);" class="waves-effect waves-light"><i class="mdi mdi-email"></i><span> Gestión Informes </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
             <ul class="list-unstyled">
-                <li><a href="{{url('/usuarios/listado')}}"> Informe A</a></li>
+                <li><a href="#"> Informe A</a></li>
                 <li><a href="email-compose.html"> Informe B</a></li>
                 <li><a href="email-read.html"> Informe C</a></li>
             </ul>

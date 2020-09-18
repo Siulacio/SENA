@@ -3,8 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\User;
 
-class UserStoreRequest extends FormRequest
+class UserUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,18 +25,14 @@ class UserStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'password'=>'required',
-            'password_confirm'=>'required_with:password|same:password',
-            'username'=>'unique:users,username',
-            'email'=>'unique:users,email',
+            'username'=>'unique:users,username,'.$this->id,
+            'email'=>'unique:users,email,' .$this->id,
         ];
     }
 
     public function messages()
     {
         return [
-            'password.required'=>'Contraseña requerida',
-            'password_confirm.same'=>'Las contraseñas no coinciden',
             'username.unique' => 'El usuario ya se encuentra registrado',
             'email.unique' => 'El correo ya se encuentra registrado',
         ];

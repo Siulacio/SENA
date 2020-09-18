@@ -14,7 +14,7 @@
         <li class="has_sub">
             <a href="javascript:void(0);" class="waves-effect waves-light"><i class="mdi mdi-email"></i><span> Actividades </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
             <ul class="list-unstyled">
-                <li><a href="{{url('/usuarios/listado')}}"> Actividades</a></li>
+                <li><a href="#"> Actividades</a></li>
                 {{-- <li><a href="email-compose.html"> Compose Mail</a></li>
                 <li><a href="email-read.html"> View Mail</a></li> --}}
             </ul>
@@ -23,7 +23,7 @@
         <li class="has_sub">
             <a href="javascript:void(0);" class="waves-effect waves-light"><i class="mdi mdi-email"></i><span> Calificaciones </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
             <ul class="list-unstyled">
-                <li><a href="{{url('/usuarios/listado')}}"> Calificaciones</a></li>
+                <li><a href="#"> Calificaciones</a></li>
                 {{-- <li><a href="email-compose.html"> Compose Mail</a></li>
                 <li><a href="email-read.html"> View Mail</a></li> --}}
             </ul>
@@ -32,7 +32,7 @@
         <li class="has_sub">
             <a href="javascript:void(0);" class="waves-effect waves-light"><i class="mdi mdi-email"></i><span> Comunicaciones </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
             <ul class="list-unstyled">
-                <li><a href="{{url('/usuarios/listado')}}"> Chat</a></li>
+                <li><a href="#"> Chat</a></li>
                 {{-- <li><a href="email-compose.html"> Compose Mail</a></li>
                 <li><a href="email-read.html"> View Mail</a></li> --}}
             </ul>

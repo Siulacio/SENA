@@ -3,7 +3,7 @@
     403!
 @endsection
 @section('mensaje')
-    Lo sentimos, página no encontrada!
+    Lo sentimos, Opción no autorizada!
 @endsection
 {{-- @section('titulo','404!')
 @section('mensaje','Lo sentimos, página no encontrada!') --}}

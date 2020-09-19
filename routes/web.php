@@ -11,10 +11,6 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 Route::get('/', function () {
     return view('auth.login');
 });
@@ -28,17 +24,16 @@ Route::get('/inicio', function () {
     return view('app.dashboard');
 });
 
-//rutas usuarios
-Route::get('/usuarios/listado','UsuariosController@index')->middleware('auth');;
-Route::get('/usuarios/nuevo','UsuariosController@create')->middleware('auth');;
-Route::post('/usuarios/guardar','UsuariosController@store')->middleware('auth');;
-Route::get('/usuarios/estado/{id}','UsuariosController@estados')->middleware('auth');;
-Route::get('/usuarios/editar/{id}','UsuariosController@edit')->middleware('auth');;
-Route::post('/usuarios/actualizar','UsuariosController@update')->middleware('auth');;
+Route::get('/unauthorized', function () {
+    return view('errors.403');
+});
 
-
-//rutas programas
-
-// Route::get('/usuarios/nuevo', function () {
-//     return view('app.usuarios.nuevo_usuario');
-// });
+Route::group(['middleware' => ['adminUser']], function(){
+    //rutas usuarios
+    Route::get('/usuarios/listado','UsuariosController@index')->middleware('auth');
+    Route::get('/usuarios/nuevo','UsuariosController@create')->middleware('auth');
+    Route::post('/usuarios/guardar','UsuariosController@store')->middleware('auth');
+    Route::get('/usuarios/estado/{id}','UsuariosController@estados')->middleware('auth');
+    Route::get('/usuarios/editar/{id}','UsuariosController@edit')->middleware('auth');
+    Route::post('/usuarios/actualizar','UsuariosController@update')->middleware('auth');    
+});

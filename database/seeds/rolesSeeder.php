@@ -12,9 +12,9 @@ class rolesSeeder extends Seeder
      */
     public function run()
     {
-        $rol = Rol::create(['nombre'=>'Administrador']);
-        $rol = Rol::create(['nombre'=>'Instructor Líder']);
-        $rol = Rol::create(['nombre'=>'Instructor Transversal']);
-        $rol = Rol::create(['nombre'=>'Aprendiz']);
+        $rol = Rol::create(['nombre'=>'Administrador']); //1
+        $rol = Rol::create(['nombre'=>'Instructor Líder']); //2
+        $rol = Rol::create(['nombre'=>'Instructor Transversal']); //3
+        $rol = Rol::create(['nombre'=>'Aprendiz']); //4
     }
 }

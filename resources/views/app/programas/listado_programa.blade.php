@@ -26,15 +26,17 @@
                     <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                         <thead>
                             <tr>
-                                <td>Usuario</td>
-                                <td>Nombres</td>
-                                <td>Rol</td>
-                                <td>Email</td>
-                                <td>Acciones</td>
+                                <td>codigo</td>
+                                <td>Nombre</td>
+                                <td>inicio</td>
+                                <td>cierre</td>
+                                <td>tipo</td>
+                                <td>duracion</td>
+                                <td>acciones</td>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($usuarios as $usuario)
+                           <!-- @foreach ($usuarios as $usuario)
                                 <tr>
                                     <td>{{$usuario->username}}</td>
                                     <td>{{$usuario->nombres}}</td>
@@ -49,8 +51,16 @@
                                         @endif
                                     </td>
                                 </tr>                                
-                            @endforeach
-                            
+                            @endforeach -->
+                            <tr>
+                                <td>codigo</td>
+                                <td>Nombre</td>
+                                <td>inicio</td>
+                                <td>cierre</td>
+                                <td>tipo</td>
+                                <td>duracion</td>
+                                <td>acciones</td>
+                             </tr>
                         </tbody>
                     </table>
                     {{-- propio de la vista --}}
